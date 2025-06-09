@@ -1,9 +1,8 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PhoneBook {
 
-    private static final Map<String, Integer> book = new HashMap<>();
+    private static final Map<String, Integer> book = new TreeMap<>();
 
     public int add(String name, int number) {
         if (book.containsKey(name)) {
@@ -32,6 +31,7 @@ public class PhoneBook {
     }
 
     public String[] printAllNames() {
-        return null;
+        Set<String> keys = book.keySet(); // Получаем Set ключей
+        return keys.toArray(new String[0]);
     }
 }

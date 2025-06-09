@@ -54,6 +54,7 @@ class PhoneBookTest {
         phoneBook.add("Anton", 123456);
         String[] actual = {"Anton", "Olga", "Petya" };
         String[] result = phoneBook.printAllNames();
+        System.out.println(Arrays.toString(result));
         Assertions.assertArrayEquals(actual, result);
 
     }
