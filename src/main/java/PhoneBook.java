@@ -24,7 +24,10 @@ public class PhoneBook {
         return "Абонента с номером: " + number + " нет."; // Если значение не найдено
     }
 
-    public int findByName(String name){
-        return 0;
+    public int findByName(String name) {
+        if (!book.containsKey(name)) {
+            System.out.printf("Абонента под именем %s нет.", name);
+        }
+        return book.get(name);
     }
 }
