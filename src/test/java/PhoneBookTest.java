@@ -1,5 +1,6 @@
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -30,5 +31,17 @@ class PhoneBookTest {
         String result = phoneBook.findByNumber(number);
         System.out.println(result + " === " + number);
         Assertions.assertEquals(name, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Petya, 231245",
+            "Olga, 456789",
+            "Anton, 123456",
+    })
+    void findByNameTest(String name, int number) {
+        phoneBook.add(name, number);
+        int result = phoneBook.findByName(name);
+        Assertions.assertEquals(number, result);
     }
 }

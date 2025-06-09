@@ -23,4 +23,8 @@ public class PhoneBook {
         }
         return "Абонента с номером: " + number + " нет."; // Если значение не найдено
     }
+
+    public int findByName(String name){
+        return 0;
+    }
 }
