@@ -3,19 +3,24 @@ import java.util.Map;
 
 public class PhoneBook {
 
-    private static final Map<String, Integer> phoneBook = new HashMap<>();
+    private static final Map<String, Integer> book = new HashMap<>();
 
     public int add(String name, int number) {
-        if (phoneBook.containsKey(name)) {
+        if (book.containsKey(name)) {
             System.out.println("Абонент с таким именем уже есть.");
         } else {
-            phoneBook.put(name, number);
-            System.out.println("Колличество абонетов: " + phoneBook.size());
+            book.put(name, number);
+            System.out.println("Колличество абонетов: " + book.size());
         }
-        return phoneBook.size();
+        return book.size();
     }
 
     public String findByNumber(int number) {
-        return null;
+        for (Map.Entry<String, Integer> entry : book.entrySet()) {
+            if (entry.getValue().equals(number)) {
+                return entry.getKey();
+            }
+        }
+        return "Абонента с номером: " + number + " нет."; // Если значение не найдено
     }
 }
