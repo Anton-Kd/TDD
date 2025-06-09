@@ -1,7 +1,9 @@
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class PhoneBookTest {
 
@@ -18,5 +20,18 @@ class PhoneBookTest {
     void addTest(String name, int phoneNumber, int count) {
         int result = phoneBook.add(name, phoneNumber);
         Assertions.assertEquals(count, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Petya, 231245",
+            "Olga, 456789",
+            "Anton, 123456",
+
+    })
+    void findByNumberTest(String name, int number) {
+        String result = phoneBook.findByNumber(number);
+        Assertions.assertEquals(name, result);
+
     }
 }
