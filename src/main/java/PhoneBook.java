@@ -30,4 +30,8 @@ public class PhoneBook {
         }
         return book.get(name);
     }
+
+    public String[] printAllNames() {
+        return null;
+    }
 }

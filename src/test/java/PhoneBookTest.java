@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Arrays;
+
 class PhoneBookTest {
     PhoneBook phoneBook = new PhoneBook();
 
@@ -43,5 +45,16 @@ class PhoneBookTest {
         phoneBook.add(name, number);
         int result = phoneBook.findByName(name);
         Assertions.assertEquals(number, result);
+    }
+
+    @Test
+    void printAllNamesTest() {
+        phoneBook.add("Petya", 231245);
+        phoneBook.add("Olga", 456789);
+        phoneBook.add("Anton", 123456);
+        String[] actual = {"Anton", "Olga", "Petya" };
+        String[] result = phoneBook.printAllNames();
+        Assertions.assertArrayEquals(actual, result);
+
     }
 }
